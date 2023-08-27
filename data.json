@@ -1,0 +1,54 @@
+[
+    {
+        "section": "Recent blog posts",
+        "posts": [
+            {
+                "author": "Olivia Rhye • 20 Jan 2022",
+                "heading": "UX review presentations",
+                "excerpt": "How do you create compelling presentations that wow your colleagues and impress your managers?",
+                "tags": ["Design", "Research", "Presentation"],
+                "image": "./src/assets/5_post-1.png"
+            },
+            {
+                "author": "Phoenix Baker • 19 Jan 2022",
+                "heading": "Migrating to Linear 101",
+                "excerpt": "Linear helps streamline software projects, sprints, tasks, and bug tracking. Here’s how to get...",
+                "tags": ["Design", "Research"],
+                "image": "./src/assets/6_post-2.png"
+            },
+            {
+                "author": "Lana Steiner • 18 Jan 2022",
+                "heading": "Building your API Stack",
+                "excerpt": "The rise of RESTful APIs has been met by a rise in tools for creating, testing, and manag...",
+                "tags": ["Design", "Research"],
+                "image": "./src/assets/7_post-3.png"
+            }
+        ]
+    },
+    {
+        "section": "Hear Ticket Volume, our podcast of ITSM world",
+        "posts": [
+            {
+                "author": "Alec Whitten • 17 Jan 2022",
+                "heading": "Bill Walsh leadership lessons",
+                "excerpt": "Like to know the secrets of transforming a 2-14 team into a 3x Super Bowl winning Dynasty?",
+                "tags": ["Leadership", "Management"],
+                "image": "./src/assets/3_card-1.jpeg"
+            },
+            {
+                "author": "Demi WIlkinson • 16 Jan 2022",
+                "heading": "PM mental models",
+                "excerpt": "Mental models are simple expressions of complex processes or relationships.",
+                "tags": ["Products", "Research", "Frameworks"],
+                "image": "./src/assets/4_card-2.jpeg"
+            },
+            {
+                "author": "Candice Wu • 15 Jan 2022",
+                "heading": "What is Wireframing?",
+                "excerpt": "Introduction to Wireframing and its Principles. Learn from the best in the industry.",
+                "tags": ["Design", "Research"],
+                "image": "./src/assets/5_card-3.jpeg"
+            }
+        ]
+    }
+]
