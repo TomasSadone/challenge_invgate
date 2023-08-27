@@ -29,6 +29,7 @@ export const Hero = ({ data }: Props) => {
                     </span>
                 </div>
                 <video
+                    //para el esqueleto que cargue un div con una animacion con aspect ratio 16/4
                     className='h-full'
                     autoPlay={true}
                     loop

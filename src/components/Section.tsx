@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Post, Sections } from '../types';
 import { Card } from './Card';
+import { Tag } from './Tag';
 
 type Props = {
     section: Sections;
@@ -27,10 +28,7 @@ export const Section = ({ section, i }: Props) => {
     }, [filters, section.posts]);
 
     const handleAddFilter = (filter: string) => {
-        console.log('addfilter');
         if (!filters.some((stateFilter) => stateFilter === filter)) {
-            console.log('agregando');
-
             setFilters([...filters, filter]);
         }
     };
@@ -45,17 +43,30 @@ export const Section = ({ section, i }: Props) => {
     return (
         <section className={`${i % 2 === 0 ? '' : 'bg-gray-100'} py-16`}>
             <div className='my-container'>
-                <h1 className='text-2xl text-gray-900 font-semibold mb-8'>
-                    {section.section}
-                </h1>
-                {filters.map((filter) => (
-                    <span
-                        key={filter}
-                        onClick={() => handleRemoveFilter(filter)}
-                    >
-                        {filter}
-                    </span>
-                ))}
+                <div className='mb-6'>
+                    <h1 className='text-2xl text-gray-900 font-semibold mb-2'>
+                        {section.section}
+                    </h1>
+
+                    {!filters.length ? (
+                        <span
+                            className={` font-medium px-2 rounded-full pointer-events-none invisible mb-4`}
+                        >
+                            nothing
+                        </span>
+                    ) : (
+                        <div className='flex gap-2'>
+                            {filters.map((filter) => (
+                                <Tag
+                                    onClick={handleRemoveFilter}
+                                    tag={filter}
+                                    key={filter}
+                                    filter
+                                />
+                            ))}
+                        </div>
+                    )}
+                </div>
                 <div
                     className={` gap-8 grid ${
                         i === 0

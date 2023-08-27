@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Post, Sections } from '../types';
 import searchIcon from '../assets/search.svg';
+import { Card } from './Card';
 type Props = {
     data: Sections[];
 };
@@ -10,7 +11,6 @@ export const Search = ({ data }: Props) => {
     const [inputValue, setInputValue] = useState('');
     const posts = data.map((section) => section.posts).flat();
     const [shownPosts, setShownPosts] = useState<Post[]>([]);
-    console.log(shownPosts);
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const currentSearch = event.target.value;
         setInputValue(currentSearch);
@@ -56,7 +56,6 @@ export const Search = ({ data }: Props) => {
                     className={`w-full  text-black`}
                 >
                     <input
-                        // sky-500 el bg de la lupa
                         value={inputValue}
                         onChange={handleInputChange}
                         className={`py-2 px-4 w-full  rounded-r-md`}
@@ -65,6 +64,13 @@ export const Search = ({ data }: Props) => {
                     />
                 </form>
             </div>
+            {shownPosts.length ? (
+                <div className='my-container grid gap-6 grid-cols-2 relative top-[200px] mx-auto'>
+                    {shownPosts.map((post) => (
+                        <Card post={post} />
+                    ))}
+                </div>
+            ) : null}
         </div>
     );
 };

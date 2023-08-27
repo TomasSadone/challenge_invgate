@@ -1,13 +1,15 @@
 import { Post } from '../types';
 import arrowIcon from '../assets/arrow.svg';
+import { Tag } from './Tag';
 
 type Props = {
-    i: number;
-    postIndex: number;
+    i?: number;
+    postIndex?: number;
     post: Post;
-    handleAddFilter: (filter: string) => void;
-    arrow: boolean;
+    handleAddFilter?: (filter: string) => void;
+    arrow?: boolean;
 };
+
 export const Card = ({ post, i, postIndex, handleAddFilter, arrow }: Props) => {
     //2 diferencias de estilos:
     //tags solo en content
@@ -17,9 +19,13 @@ export const Card = ({ post, i, postIndex, handleAddFilter, arrow }: Props) => {
     //display none a la flecha si i === 0 && postIndex !== 0
     //y a esas mismas grid 2 col
     //y hacerlas invertida a lo de section, lg: 2 cols, md:1 col, 2 cols
+
+    //bg-50 font-600
+    //red - indigo - blue/cyan - slate/gray? - emerald - pink
+
     return (
         <div
-            className={`grid gap-4 content-start ${
+            className={`grid gap-4 content-start cursor-pointer ${
                 i === 0 && postIndex === 0 ? 'row-span-2' : ''
             } ${
                 i === 0 && postIndex !== 0
@@ -48,12 +54,11 @@ export const Card = ({ post, i, postIndex, handleAddFilter, arrow }: Props) => {
                 <p>{post.excerpt}</p>
                 <div className='flex gap-2'>
                     {post.tags.map((tag) => (
-                        <span
+                        <Tag
+                            onClick={handleAddFilter!}
+                            tag={tag}
                             key={tag}
-                            onClick={() => handleAddFilter(tag)}
-                        >
-                            {tag}
-                        </span>
+                        />
                     ))}
                 </div>
             </div>
