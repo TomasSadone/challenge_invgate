@@ -6,7 +6,7 @@ import { Content } from './components/Content';
 
 function App() {
     const [data, setData] = useState<Sections[]>([]);
-    const [open, setOpen] = useState(false);
+    const [openSearch, setOpenSearch] = useState(false);
     const fetchData = async () => {
         const response = await fetch('data.json');
         const data = await response.json();
@@ -18,13 +18,13 @@ function App() {
     return (
         <div
             className={`relative min-h-screen bg-white text-gray-500 ${
-                open ? 'overflow-hidden h-screen' : ''
+                openSearch ? 'overflow-hidden h-screen' : ''
             }`}
         >
             <Navbar />
             <Hero
-                open={open}
-                setOpen={setOpen}
+                openSearch={openSearch}
+                setOpenSearch={setOpenSearch}
                 data={data}
             />
             <Content data={data} />

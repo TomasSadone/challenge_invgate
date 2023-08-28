@@ -4,11 +4,11 @@ import searchIcon from '../assets/search.svg';
 import { Card } from './Card';
 type Props = {
     data: Sections[];
-    open: boolean;
-    setOpen: (b: boolean) => void;
+    openSearch: boolean;
+    setOpenSearch: (b: boolean) => void;
 };
 
-export const Search = ({ data, open, setOpen }: Props) => {
+export const Search = ({ data, openSearch, setOpenSearch }: Props) => {
     const [inputValue, setInputValue] = useState('');
     const posts = data.map((section) => section.posts).flat();
     const [shownPosts, setShownPosts] = useState<Post[]>([]);
@@ -17,13 +17,13 @@ export const Search = ({ data, open, setOpen }: Props) => {
         setInputValue(currentSearch);
         if (currentSearch === '') {
             setShownPosts([]);
-            setOpen(false);
+            setOpenSearch(false);
         } else {
             const postsToShow = posts.filter((post) =>
                 post.heading.toLowerCase().includes(currentSearch)
             );
             setShownPosts(postsToShow);
-            setOpen(true);
+            setOpenSearch(true);
         }
     };
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -32,14 +32,14 @@ export const Search = ({ data, open, setOpen }: Props) => {
     return (
         <div
             className={`${
-                open
+                openSearch
                     ? 'absolute top-16 bottom-0 right-0 left-0  backdrop-blur-2xl overflow-auto'
                     : ''
             }`}
         >
             <div
                 className={`flex  items-stretch relative shadow shadow-gray-300 rounded-md ${
-                    open
+                    openSearch
                         ? 'top-[50px] left-1/2  transform -translate-x-1/2 w-1/2'
                         : ''
                 }`}

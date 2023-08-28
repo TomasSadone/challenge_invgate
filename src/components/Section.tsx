@@ -42,7 +42,6 @@ export const Section = ({ section, i }: Props) => {
                     <h1 className='text-2xl text-gray-900 font-semibold '>
                         {section.section}
                     </h1>
-
                     {filters.length ? (
                         <div className='flex gap-2'>
                             {filters.map((filter) => (
