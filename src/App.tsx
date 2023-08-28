@@ -25,7 +25,7 @@ function App() {
             <Hero
                 openSearch={openSearch}
                 setOpenSearch={setOpenSearch}
-                data={data}
+                posts={data[0]?.posts}
             />
             <Content data={data} />
         </div>

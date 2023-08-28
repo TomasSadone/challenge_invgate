@@ -58,7 +58,7 @@ export const Section = ({ section, i }: Props) => {
                 <div
                     className={` gap-8 grid ${
                         i === 0
-                            ? ' lg:grid-cols-2 '
+                            ? ' md:grid-cols-2 '
                             : ' lg:grid-cols-3 md:grid-cols-2'
                     }`}
                 >

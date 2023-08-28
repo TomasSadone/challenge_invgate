@@ -1,14 +1,14 @@
 import heroVideo from '../assets/2_hero.webm';
-import { Sections } from '../types';
+import { Post } from '../types';
 import { Search } from './Search';
 
 type Props = {
-    data: Sections[];
+    posts: Post[];
     openSearch: boolean;
     setOpenSearch: (b: boolean) => void;
 };
 
-export const Hero = ({ data, openSearch, setOpenSearch }: Props) => {
+export const Hero = ({ posts, openSearch, setOpenSearch }: Props) => {
     return (
         <section className='my-container-lg '>
             <div className=' px-16 py-12   bg-[#E3F2FF] grid md:grid-cols-2 rounded-xl shadow-xl shadow-gray-200'>
@@ -20,7 +20,7 @@ export const Hero = ({ data, openSearch, setOpenSearch }: Props) => {
                         Find the most relevant content in the IT world
                     </h1>
                     <Search
-                        data={data}
+                        posts={posts}
                         openSearch={openSearch}
                         setOpenSearch={setOpenSearch}
                     />

@@ -1,16 +1,15 @@
 import { useState } from 'react';
-import { Post, Sections } from '../types';
+import { Post } from '../types';
 import searchIcon from '../assets/search.svg';
 import { Card } from './Card';
 type Props = {
-    data: Sections[];
+    posts: Post[];
     openSearch: boolean;
     setOpenSearch: (b: boolean) => void;
 };
 
-export const Search = ({ data, openSearch, setOpenSearch }: Props) => {
+export const Search = ({ posts, openSearch, setOpenSearch }: Props) => {
     const [inputValue, setInputValue] = useState('');
-    const posts = data.map((section) => section.posts).flat();
     const [shownPosts, setShownPosts] = useState<Post[]>([]);
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const currentSearch = event.target.value;
@@ -68,7 +67,10 @@ export const Search = ({ data, openSearch, setOpenSearch }: Props) => {
             {shownPosts.length ? (
                 <div className='my-container grid gap-6 pb-8 sm:grid-cols-2 lg:grid-cols-3 relative top-[100px] mx-auto [&>*]:bg-white [&>*]:p-2 [&>*]:shadow  [&>*]:shadow-gray-200'>
                     {shownPosts.map((post) => (
-                        <Card post={post} />
+                        <Card
+                            key={post.heading}
+                            post={post}
+                        />
                     ))}
                 </div>
             ) : null}
