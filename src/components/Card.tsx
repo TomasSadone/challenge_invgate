@@ -11,21 +11,9 @@ type Props = {
 };
 
 export const Card = ({ post, i, postIndex, handleAddFilter, arrow }: Props) => {
-    //2 diferencias de estilos:
-    //tags solo en content
-    //flechita como 'ver mas' solo en el grande de la 1er seccion, y en los de 3 col.
-    //con el mismo criterio que modifico eso, modificar esto.
-
-    //display none a la flecha si i === 0 && postIndex !== 0
-    //y a esas mismas grid 2 col
-    //y hacerlas invertida a lo de section, lg: 2 cols, md:1 col, 2 cols
-
-    //bg-50 font-600
-    //red - indigo - blue/cyan - slate/gray? - emerald - pink
-
     return (
         <div
-            className={`grid gap-4 content-start cursor-pointer ${
+            className={`grid gap-4 content-start  rounded-xl ${
                 i === 0 && postIndex === 0 ? 'row-span-2' : ''
             } ${
                 i === 0 && postIndex !== 0
@@ -38,9 +26,9 @@ export const Card = ({ post, i, postIndex, handleAddFilter, arrow }: Props) => {
                 src={post.image}
                 alt='decorative'
             />
-            <div className='grid gap-2'>
+            <div className='grid gap-2 '>
                 <span className='text-sky-700 font-medium'>{post.author}</span>
-                <div className='flex justify-between'>
+                <div className='flex justify-between cursor-pointer'>
                     <h2 className='text-2xl font-medium text-gray-900'>
                         {post.heading}
                     </h2>
@@ -53,13 +41,17 @@ export const Card = ({ post, i, postIndex, handleAddFilter, arrow }: Props) => {
                 </div>
                 <p>{post.excerpt}</p>
                 <div className='flex gap-2'>
-                    {post.tags.map((tag) => (
-                        <Tag
-                            onClick={handleAddFilter!}
-                            tag={tag}
-                            key={tag}
-                        />
-                    ))}
+                    {handleAddFilter &&
+                        post.tags.map((tag) => (
+                            <Tag
+                                onClick={
+                                    handleAddFilter &&
+                                    (() => handleAddFilter(tag))
+                                }
+                                tag={tag}
+                                key={tag}
+                            />
+                        ))}
                 </div>
             </div>
         </div>

@@ -24,7 +24,7 @@ export const Tag = ({ tag, onClick, filter }: Props) => {
     }
     return (
         <span
-            className={` ${colors[colorIndex]} font-medium px-2 rounded-full cursor-pointer`}
+            className={` ${colors[colorIndex]} font-medium px-2 rounded-full cursor-pointer leading-loose`}
             key={tag}
             onClick={() => onClick(tag)}
         >

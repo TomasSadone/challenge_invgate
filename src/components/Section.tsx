@@ -16,19 +16,14 @@ export const Section = ({ section, i }: Props) => {
         if (!filters.length) {
             return setShownPosts(section.posts);
         }
-
         const postsToShow = section.posts.filter((post) =>
-            filters.every((filter) =>
-                post.tags.some(
-                    (tag) => tag.toLowerCase() === filter.toLowerCase()
-                )
-            )
+            filters.every((filter) => post.tags.includes(filter))
         );
         setShownPosts(postsToShow);
     }, [filters, section.posts]);
 
     const handleAddFilter = (filter: string) => {
-        if (!filters.some((stateFilter) => stateFilter === filter)) {
+        if (!filters.includes(filter)) {
             setFilters([...filters, filter]);
         }
     };
@@ -41,20 +36,14 @@ export const Section = ({ section, i }: Props) => {
     }, [filters, handleFilters]);
 
     return (
-        <section className={`${i % 2 === 0 ? '' : 'bg-gray-100'} py-16`}>
+        <section className={`${i % 2 === 0 ? '' : 'bg-gray-100'} pt-12 pb-16`}>
             <div className='my-container'>
-                <div className='mb-6'>
-                    <h1 className='text-2xl text-gray-900 font-semibold mb-2'>
+                <div className='mb-6 flex items-center gap-4'>
+                    <h1 className='text-2xl text-gray-900 font-semibold '>
                         {section.section}
                     </h1>
 
-                    {!filters.length ? (
-                        <span
-                            className={` font-medium px-2 rounded-full pointer-events-none invisible mb-4`}
-                        >
-                            nothing
-                        </span>
-                    ) : (
+                    {filters.length ? (
                         <div className='flex gap-2'>
                             {filters.map((filter) => (
                                 <Tag
@@ -65,13 +54,13 @@ export const Section = ({ section, i }: Props) => {
                                 />
                             ))}
                         </div>
-                    )}
+                    ) : null}
                 </div>
                 <div
                     className={` gap-8 grid ${
                         i === 0
-                            ? ' lg:grid-cols-2 md:grid-cols-3'
-                            : ' md:grid-cols-3'
+                            ? ' lg:grid-cols-2 '
+                            : ' lg:grid-cols-3 md:grid-cols-2'
                     }`}
                 >
                     {shownPosts.map((post, postIndex) => (

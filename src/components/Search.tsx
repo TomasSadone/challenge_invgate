@@ -4,10 +4,11 @@ import searchIcon from '../assets/search.svg';
 import { Card } from './Card';
 type Props = {
     data: Sections[];
+    open: boolean;
+    setOpen: (b: boolean) => void;
 };
 
-export const Search = ({ data }: Props) => {
-    const [open, setOpen] = useState(false);
+export const Search = ({ data, open, setOpen }: Props) => {
     const [inputValue, setInputValue] = useState('');
     const posts = data.map((section) => section.posts).flat();
     const [shownPosts, setShownPosts] = useState<Post[]>([]);
@@ -32,14 +33,14 @@ export const Search = ({ data }: Props) => {
         <div
             className={`${
                 open
-                    ? 'absolute top-16 bottom-0 right-0 left-0  backdrop-blur-2xl '
+                    ? 'absolute top-16 bottom-0 right-0 left-0  backdrop-blur-2xl overflow-auto'
                     : ''
             }`}
         >
             <div
                 className={`flex  items-stretch relative shadow shadow-gray-300 rounded-md ${
                     open
-                        ? 'top-[150px] left-1/2  transform -translate-x-1/2 w-1/2'
+                        ? 'top-[50px] left-1/2  transform -translate-x-1/2 w-1/2'
                         : ''
                 }`}
             >
@@ -58,14 +59,14 @@ export const Search = ({ data }: Props) => {
                     <input
                         value={inputValue}
                         onChange={handleInputChange}
-                        className={`py-2 px-4 w-full  rounded-r-md`}
+                        className={`py-2 px-4 w-full  rounded-r-md focus-visible:outline-none`}
                         type='text'
                         placeholder="I'm looking for..."
                     />
                 </form>
             </div>
             {shownPosts.length ? (
-                <div className='my-container grid gap-6 grid-cols-2 relative top-[200px] mx-auto'>
+                <div className='my-container grid gap-6 pb-8 sm:grid-cols-2 lg:grid-cols-3 relative top-[100px] mx-auto [&>*]:bg-white [&>*]:p-2 [&>*]:shadow  [&>*]:shadow-gray-200'>
                     {shownPosts.map((post) => (
                         <Card post={post} />
                     ))}
