@@ -14,10 +14,10 @@ export const Card = ({ post, i, postIndex, handleAddFilter, arrow }: Props) => {
     return (
         <div
             className={`grid gap-4 content-start  rounded-xl ${
-                i === 0 && postIndex === 0 ? 'row-span-2' : ''
+                i === 0 && postIndex === 0 ? 'lg:row-span-2' : ''
             } ${
                 i === 0 && postIndex !== 0
-                    ? 'grid-cols-2 md:grid-cols-1 lg:grid-cols-2 '
+                    ? 'sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 '
                     : ''
             }`}
         >
