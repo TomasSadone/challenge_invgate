@@ -6,7 +6,7 @@ type ColorMap = {
 
 type Props = { tag: string; onClick: (tag: string) => void; filter?: boolean };
 
-export const Tag = ({ tag, onClick, filter }: Props) => {
+const Tag = ({ tag, onClick, filter }: Props): JSX.Element => {
     const colorIndex = useMemo(() => getRandomInt(0, 5), []);
 
     const colors: ColorMap = {
@@ -33,3 +33,5 @@ export const Tag = ({ tag, onClick, filter }: Props) => {
         </span>
     );
 };
+
+export default Tag;

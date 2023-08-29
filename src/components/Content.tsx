@@ -1,10 +1,10 @@
 import { Sections } from '../types';
-import { Section } from './Section';
+import Section from './Section';
 
 type Props = {
     data: Sections[];
 };
-export const Content = ({ data }: Props) => {
+const Content = ({ data }: Props): JSX.Element => {
     return (
         <main className=''>
             {data.map((section, i) => (
@@ -17,3 +17,5 @@ export const Content = ({ data }: Props) => {
         </main>
     );
 };
+
+export default Content;

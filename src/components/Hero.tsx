@@ -1,6 +1,6 @@
 import heroVideo from '../assets/2_hero.webm';
 import { Post } from '../types';
-import { Search } from './Search';
+import Search from './Search';
 
 type Props = {
     posts: Post[];
@@ -8,7 +8,7 @@ type Props = {
     setOpenSearch: (b: boolean) => void;
 };
 
-export const Hero = ({ posts, openSearch, setOpenSearch }: Props) => {
+const Hero = ({ posts, openSearch, setOpenSearch }: Props): JSX.Element => {
     return (
         <section className='my-container-lg '>
             <div className=' px-16 py-12   bg-[#E3F2FF] grid md:grid-cols-2 rounded-xl shadow-xl shadow-gray-200'>
@@ -50,3 +50,5 @@ export const Hero = ({ posts, openSearch, setOpenSearch }: Props) => {
         </section>
     );
 };
+
+export default Hero;

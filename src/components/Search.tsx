@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { Post } from '../types';
 import searchIcon from '../assets/search.svg';
-import { Card } from './Card';
+import Card from './Card';
 type Props = {
     posts: Post[];
     openSearch: boolean;
     setOpenSearch: (b: boolean) => void;
 };
 
-export const Search = ({ posts, openSearch, setOpenSearch }: Props) => {
+const Search = ({ posts, openSearch, setOpenSearch }: Props): JSX.Element => {
     const [inputValue, setInputValue] = useState('');
     const [shownPosts, setShownPosts] = useState<Post[]>([]);
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -77,3 +77,4 @@ export const Search = ({ posts, openSearch, setOpenSearch }: Props) => {
         </div>
     );
 };
+export default Search;

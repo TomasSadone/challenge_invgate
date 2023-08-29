@@ -1,6 +1,6 @@
 import { Post } from '../types';
 import arrowIcon from '../assets/arrow.svg';
-import { Tag } from './Tag';
+import Tag from './Tag';
 
 type Props = {
     i?: number;
@@ -10,7 +10,13 @@ type Props = {
     arrow?: boolean;
 };
 
-export const Card = ({ post, i, postIndex, handleAddFilter, arrow }: Props) => {
+const Card = ({
+    post,
+    i,
+    postIndex,
+    handleAddFilter,
+    arrow,
+}: Props): JSX.Element => {
     return (
         <div
             className={`grid gap-4 content-start  rounded-xl ${
@@ -57,3 +63,4 @@ export const Card = ({ post, i, postIndex, handleAddFilter, arrow }: Props) => {
         </div>
     );
 };
+export default Card;

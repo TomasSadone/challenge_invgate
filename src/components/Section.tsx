@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Post, Sections } from '../types';
-import { Card } from './Card';
-import { Tag } from './Tag';
+import Card from './Card';
+import Tag from './Tag';
 
 type Props = {
     section: Sections;
     i: number;
 };
 
-export const Section = ({ section, i }: Props) => {
+const Section = ({ section, i }: Props): JSX.Element => {
     const [filters, setFilters] = useState<string[]>([]);
     const [shownPosts, setShownPosts] = useState<Post[]>(section.posts);
 
@@ -77,3 +77,5 @@ export const Section = ({ section, i }: Props) => {
         </section>
     );
 };
+
+export default Section;

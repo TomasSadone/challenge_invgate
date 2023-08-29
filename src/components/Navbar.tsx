@@ -3,7 +3,7 @@ import logo from '../assets/1_invgate-logo.png';
 import globe from '../assets/globe.svg';
 import chevron from '../assets/chevron.svg';
 
-export const Navbar = () => {
+const Navbar = (): JSX.Element => {
     const [isOpen, setIsOpen] = useState(false);
     return (
         <header className='py-4 z-20 sticky top-0  w-full bg-white'>
@@ -102,3 +102,5 @@ export const Navbar = () => {
         </header>
     );
 };
+
+export default Navbar;
