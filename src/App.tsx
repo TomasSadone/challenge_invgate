@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Hero } from './components/Hero';
-import { Navbar } from './components/Navbar';
+import Hero from './components/Hero';
+import Navbar from './components/Navbar';
 import { Sections } from './types';
-import { Content } from './components/Content';
+import Content from './components/Content';
 
 function App() {
     const [data, setData] = useState<Sections[]>([]);
